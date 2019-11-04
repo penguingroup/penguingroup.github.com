@@ -37,3 +37,28 @@ git clone https://github.com/penguingroup/NewsSystem.git
 cd NewsSystem
 python manage.py runserver 0.0.0.0:8888
 ```
+
+## 完整部署脚本
+
+```shell
+git clone https://github.com/penguingroup/ermine.git
+git clone https://github.com/penguingroup/polar.git
+git clone https://github.com/penguingroup/NewsSystem.git
+redis-server &
+https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.3.0-linux-x86_64.tar.gz
+tar -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz
+cd elasticsearch-7.3.0-linux-x86_64/bin
+./elasticsearch &
+cd -
+cd NewsSystem
+nohup python manage.py runserver 0.0.0.0:8888 &
+cd -
+cd polar
+go build
+nohup ./polar &
+cd -
+cd ermine
+npm run serve
+```
+**此时运行成功，可以访问**http://127.0.0.1:8888/admin **访问管理后台**  
+**文章发布后，可以访问**http://localhost:8080/#homecode **访问前端页面**
