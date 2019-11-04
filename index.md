@@ -11,8 +11,29 @@
 
 **白鼬（ermine）**
 
+**部署**
+```shell
+git clone https://github.com/penguingroup/ermine.git
+cd ermine
+npm run serve
+```
+
 ## 接入层
 
 **北极圈（polar）**
 
+**部署**
+```shell
+git clone https://github.com/penguingroup/polar.git
+cd polar
+go run main.go
+```
+
 ## 运营管理端
+
+**部署**
+```shell
+git clone https://github.com/penguingroup/NewsSystem.git
+cd NewsSystem
+python manage.py runserver 0.0.0.0:8888
+```
